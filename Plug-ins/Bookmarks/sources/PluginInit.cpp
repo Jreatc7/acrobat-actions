@@ -45,7 +45,6 @@ extern "C" HINSTANCE gHINSTANCE;
 
 static const char *pluginMenuName = "Extensions";
 static AVMenuItem topMenuItem = NULL;
-static AVMenuItem aboutMenuItem = NULL;
 static AVMenuItem menuItem[4] = {NULL, NULL, NULL, NULL};
 
 ACCB1 ASBool ACCB2 FindPluginMenu(void);
@@ -117,13 +116,6 @@ ACCB1 ASBool ACCB2 FindPluginMenu(void)
 
 #define NOTESIZ 200
 static char notes[NOTESIZ] = "";
-
-ACCB1 void ACCB2 PluginAbout(void *clientData)
-{
-    AVAlertNote("Bookmarks Version 2 by Chun Tian (binghe)");
-
-    return;
-}
 
 /* Fix FitType of all Bookmarks */
 ACCB1 void ACCB2 PluginCommand_1(void *clientData)
@@ -212,42 +204,37 @@ ACCB1 ASBool ACCB2 PluginIsDisabled(void *clientData)
 ACCB1 ASBool ACCB2 PluginSetMenu()
 {
     AVMenubar menubar = AVAppGetMenubar();
-    AVMenu volatile commonMenu = NULL, aboutMenu = NULL;
+    AVMenu volatile commonMenu = NULL;
     AVMenu subMenu = NULL;
     int i = 0;
 
     if (!menubar) { return false; }
 
 DURING
-    aboutMenu = AVMenubarAcquireMenuByName(menubar, "AboutExtensions");
-    aboutMenuItem = AVMenuItemNew("Bookmarks...", "AA:Bookmarks_about",
-                                  NULL, /* submenu */
-                                  true, /* longMenusOnly */
-                                  NO_SHORTCUT, 0 /* flags */,
-                                  NULL /* icon */, gExtensionID);
-    AVMenuItemSetExecuteProc
-      (aboutMenuItem, ASCallbackCreateProto(AVExecuteProc, PluginAbout), NULL);
-    AVMenuAddMenuItem(aboutMenu, aboutMenuItem, APPEND_MENUITEM);
-    AVMenuRelease(aboutMenu);
-    aboutMenu = NULL;
+    // Find or create our dedicated (sub)menu, title is not important (not shown anywhere)
+    topMenuItem = AVMenubarAcquireMenuItemByName(menubar, "AA:Plugins");
+    if (topMenuItem) {
+        subMenu = AVMenuItemAcquireSubmenu(topMenuItem);
+    } else {
+        subMenu = AVMenuNew("N/A", "AA:PluginsMenu", gExtensionID);
+        AVMenuAcquire(subMenu);
+        topMenuItem = AVMenuItemNew("Acrobat Actions", "AA:Plugins",
+                                    subMenu, true, NO_SHORTCUT, 0, NULL,
+                                    gExtensionID);
+    }
 
     /* Acquire() needs a Release() */
-    commonMenu = AVMenubarAcquireMenuByName(menubar, "Extensions");
+    commonMenu = AVMenubarAcquireMenuByName(menubar, pluginMenuName);
     // if "Extensions" menu doesn't exist, then create one.
-    //if (!commonMenu) {
-    //  commonMenu = AVMenuNew("Extensions", "Extensions", gExtensionID);
-    //  AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
-    //}
-
-    subMenu = AVMenuNew("N/A", "AA:PluginsMenu", gExtensionID);
-    topMenuItem = AVMenuItemNew("Acrobat Actions", "AA:Plugins",
-                                subMenu, true, NO_SHORTCUT, 0, NULL,
-                                gExtensionID);
+    if (!commonMenu) {
+      commonMenu = AVMenuNew(pluginMenuName, pluginMenuName, gExtensionID);
+      AVMenubarAddMenu(menubar, commonMenu, APPEND_MENU);
+    }
     AVMenuAddMenuItem(commonMenu, topMenuItem, APPEND_MENUITEM);
     AVMenuRelease(commonMenu);
-    AVMenuAcquire(subMenu);
+
     // Command 1
-    menuItem[i] = AVMenuItemNew("Fix FitType of All Bookmarks", "AA:FixFitType_BookmarksItm",
+    menuItem[i] = AVMenuItemNew(toolName, "AA:FixFitType_BookmarksItm",
                                 NULL, /* submenu */
                                 true, /* longMenusOnly */
                                 NO_SHORTCUT, 0 /* flags */,
@@ -310,9 +297,6 @@ HANDLER
     AVMenuRelease(subMenu);
     if (commonMenu) {
         AVMenuRelease(commonMenu);
-    }
-    if (aboutMenu) {
-        AVMenuRelease(aboutMenu);
     }
     return false;
 END_HANDLER
@@ -463,9 +447,6 @@ ACCB1 ASBool ACCB2 PluginUnload (void)
 {
     if (topMenuItem) {
         AVMenuItemRemove(topMenuItem);
-    }
-    if (aboutMenuItem) {
-        AVMenuItemRemove(aboutMenuItem);
     }
 
     AVCommand cmd = AVAppFindGlobalCommandByName(ASAtomFromString(kCmdName));
