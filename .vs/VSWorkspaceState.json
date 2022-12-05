@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
+=======
+    "",
+    "\\Plug-ins",
+    "\\Plug-ins\\Bookmarks",
+    "\\Plug-ins\\Bookmarks\\vs2015"
+>>>>>>> aceb978afa5efd58dff563f4543ce1e652f8233f
   ],
   "PreviewInSolutionExplorer": false
 }
