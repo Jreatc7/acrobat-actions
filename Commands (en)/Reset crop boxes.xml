@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commands>
+	<Command name="CropPages" pauseBefore="false" promptUser="false" label="Reset crop boxes" tooltip="Reset crop boxes" ID="3329FFC0A5715B680CB0C39DB29781B">
+		<Items>
+			<Item name="BoxType" type="integer" value="0"/>
+			<Items name="Crop">
+				<Item name="Bottom" type="double" value="0.000000"/>
+				<Item name="BottomText" type="text" value="0 点"/>
+				<Item name="CropType" type="integer" value="0"/>
+				<Item name="Filter" type="integer" value="0"/>
+				<Item name="Left" type="double" value="0.000000"/>
+				<Item name="LeftText" type="text" value="0 点"/>
+				<Item name="Right" type="double" value="0.000000"/>
+				<Item name="RightText" type="text" value="0 点"/>
+				<Item name="Top" type="double" value="0.000000"/>
+				<Item name="TopText" type="text" value="0 点"/>
+				<Item name="version" type="integer" value="2"/>
+			</Items>
+			<Item name="EvenOdd" type="integer" value="0"/>
+			<Item name="From" type="text" value="1"/>
+			<Item name="Group" type="integer" value="0"/>
+			<Item name="To" type="text" value="1"/>
+		</Items>
+	</Command>
+</Commands>

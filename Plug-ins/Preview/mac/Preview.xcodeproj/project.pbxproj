@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F09B8BB270DDABE00C9DD6A /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4F09B8BA270DDABE00C9DD6A /* Debug.xcconfig */; };
+		4F09B8F62710834800C9DD6A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09B8F52710834800C9DD6A /* Cocoa.framework */; };
 		4FA211872386BFEE0057E287 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA211852386BFEE0057E287 /* Functions.cpp */; };
+		4FA448D5270B9069008FAC40 /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA448D4270B9069008FAC40 /* Window.m */; };
 		4FA771012708B37A00E02C94 /* AVCompat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA7707A2708B37800E02C94 /* AVCompat.cpp */; };
 		4FA771022708B37A00E02C94 /* SafeResources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FA770BD2708B37900E02C94 /* SafeResources.cpp */; };
 		4FA771032708B37A00E02C94 /* PIHeaders.c in Sources */ = {isa = PBXBuildFile; fileRef = 4FA770FF2708B37A00E02C94 /* PIHeaders.c */; };
-		4FBD0BD9272DD385001019BA /* Regex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD0BD8272DD385001019BA /* Regex.cpp */; };
 		8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */; };
 		DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */ = {isa = PBXBuildFile; fileRef = DB9570EC09DA0AA400D15BF1 /* PIMain.c */; };
@@ -19,9 +21,12 @@
 
 /* Begin PBXFileReference section */
 		4F09B8BA270DDABE00C9DD6A /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Debug.xcconfig; sourceTree = "<group>"; };
+		4F09B8F52710834800C9DD6A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		4F1E6773270728D3003C131A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FA211852386BFEE0057E287 /* Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Functions.cpp; path = ../sources/Functions.cpp; sourceTree = "<group>"; };
 		4FA211862386BFEE0057E287 /* Functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Functions.hpp; path = ../sources/Functions.hpp; sourceTree = "<group>"; };
+		4FA448D4270B9069008FAC40 /* Window.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Window.m; path = ../sources/Window.m; sourceTree = "<group>"; };
+		4FA448D7270B90A1008FAC40 /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Window.h; path = ../sources/Window.h; sourceTree = "<group>"; };
 		4FA770642708B37700E02C94 /* AVExpTObsolete1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVExpTObsolete1.h; path = ../../PluginSupport/Headers/API/AVExpTObsolete1.h; sourceTree = "<group>"; };
 		4FA770652708B37700E02C94 /* PDBatesExpT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDBatesExpT.h; path = ../../PluginSupport/Headers/API/PDBatesExpT.h; sourceTree = "<group>"; };
 		4FA770662708B37700E02C94 /* PDCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDCalls.h; path = ../../PluginSupport/Headers/API/PDCalls.h; sourceTree = "<group>"; };
@@ -180,17 +185,16 @@
 		4FA770FF2708B37A00E02C94 /* PIHeaders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PIHeaders.c; path = ../../PluginSupport/Headers/API/PIHeaders.c; sourceTree = "<group>"; };
 		4FA771002708B37A00E02C94 /* SpellerHFTProcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellerHFTProcs.h; path = ../../PluginSupport/Headers/API/SpellerHFTProcs.h; sourceTree = "<group>"; };
 		4FA771052708B39B00E02C94 /* PIHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PIHeaders.h; path = ../../PluginSupport/Headers/SDK/PIHeaders.h; sourceTree = "<group>"; };
-		4FBD0BD8272DD385001019BA /* Regex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Regex.cpp; path = ../sources/Regex.cpp; sourceTree = "<group>"; };
-		4FBD0BDC272DD3B7001019BA /* Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Regex.h; path = ../sources/Regex.h; sourceTree = "<group>"; };
-		8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bookmarks.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
-		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
-		DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
-		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
+		4FA771062708B39C00E02C94 /* MacPIHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacPIHeaders.h; path = ../../PluginSupport/Headers/SDK/MacPIHeaders.h; sourceTree = "<group>"; };
+		8D01CCD20486CAD60068D4B7 /* Preview.acroplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Preview.acroplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5287450A1930200088FAB2 /* Default.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Default.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Default.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D509DA098E00D15BF1 /* Project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Project_debug.xcconfig; path = ProjectConfigurations/Project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570D809DA098E00D15BF1 /* ProjectDefault.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectDefault.xcconfig; path = ProjectConfigurations/ProjectDefault.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB9570DB09DA09AD00D15BF1 /* Environment.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = Environment.xcconfig; path = ../../PluginSupport/Headers/SDK/MacSDKConfigurations/Environment.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB9570EC09DA0AA400D15BF1 /* PIMain.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = PIMain.c; path = ../../PluginSupport/Headers/API/PIMain.c; sourceTree = SOURCE_ROOT; };
-		DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PluginInit.cpp; path = ../sources/PluginInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 8; };
+		DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = PluginInit.cpp; path = ../sources/PluginInit.cpp; sourceTree = SOURCE_ROOT; tabWidth = 8; };
 		DB9ABFD609DCA62100298E3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../sources/Info.plist; sourceTree = SOURCE_ROOT; };
-		DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = ProjectResources.xcconfig; path = ProjectConfigurations/ProjectResources.xcconfig; sourceTree = SOURCE_ROOT; };
+		DBC3ACC009E1DCE1005F3202 /* ProjectResources.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; name = ProjectResources.xcconfig; path = ProjectConfigurations/ProjectResources.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F09B8F62710834800C9DD6A /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +214,9 @@
 			children = (
 				4FA770632708B34700E02C94 /* Acrobat SDK */,
 				DB9570D309DA097D00D15BF1 /* Configurations */,
-				4FBD0BDB272DD394001019BA /* Headers */,
 				08FB77ADFE841716C02AAC07 /* Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
+				4F09B8F42710831F00C9DD6A /* Frameworks */,
 				19C28FB4FE9D528D11CA2CBB /* Products */,
 			);
 			name = Starter;
@@ -229,10 +234,14 @@
 		08FB77ADFE841716C02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4FBD0BD8272DD385001019BA /* Regex.cpp */,
+				4FA771062708B39C00E02C94 /* MacPIHeaders.h */,
+				4FA771052708B39B00E02C94 /* PIHeaders.h */,
 				DB9570EC09DA0AA400D15BF1 /* PIMain.c */,
 				DB9570ED09DA0AB800D15BF1 /* PluginInit.cpp */,
 				4FA211852386BFEE0057E287 /* Functions.cpp */,
+				4FA211862386BFEE0057E287 /* Functions.hpp */,
+				4FA448D4270B9069008FAC40 /* Window.m */,
+				4FA448D7270B90A1008FAC40 /* Window.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -240,9 +249,17 @@
 		19C28FB4FE9D528D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */,
+				8D01CCD20486CAD60068D4B7 /* Preview.acroplugin */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4F09B8F42710831F00C9DD6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F09B8F52710834800C9DD6A /* Cocoa.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4FA770632708B34700E02C94 /* Acrobat SDK */ = {
@@ -409,16 +426,6 @@
 			name = "Acrobat SDK";
 			sourceTree = "<group>";
 		};
-		4FBD0BDB272DD394001019BA /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				4FBD0BDC272DD3B7001019BA /* Regex.h */,
-				4FA771052708B39B00E02C94 /* PIHeaders.h */,
-				4FA211862386BFEE0057E287 /* Functions.hpp */,
-			);
-			name = Headers;
-			sourceTree = "<group>";
-		};
 		DB9570D309DA097D00D15BF1 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,9 +450,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D01CCC60486CAD60068D4B7 /* Bookmarks_debug */ = {
+		8D01CCC60486CAD60068D4B7 /* Preview_debug */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks_debug" */;
+			buildConfigurationList = 4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Preview_debug" */;
 			buildPhases = (
 				8D01CCC90486CAD60068D4B7 /* Resources */,
 				8D01CCCB0486CAD60068D4B7 /* Sources */,
@@ -455,10 +462,10 @@
 			);
 			dependencies = (
 			);
-			name = Bookmarks_debug;
+			name = Preview_debug;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = Starter;
-			productReference = 8D01CCD20486CAD60068D4B7 /* Bookmarks.acroplugin */;
+			productReference = 8D01CCD20486CAD60068D4B7 /* Preview.acroplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -471,7 +478,7 @@
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Acrobat Actions (GitHub project)";
 			};
-			buildConfigurationList = 4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Bookmarks" */;
+			buildConfigurationList = 4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Preview" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
@@ -483,7 +490,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D01CCC60486CAD60068D4B7 /* Bookmarks_debug */,
+				8D01CCC60486CAD60068D4B7 /* Preview_debug */,
 			);
 		};
 /* End PBXProject section */
@@ -493,6 +500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F09B8BB270DDABE00C9DD6A /* Debug.xcconfig in Resources */,
 				8D01CCCA0486CAD60068D4B7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,11 +513,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA771012708B37A00E02C94 /* AVCompat.cpp in Sources */,
+				4FA448D5270B9069008FAC40 /* Window.m in Sources */,
 				4FA771032708B37A00E02C94 /* PIHeaders.c in Sources */,
 				4FA211872386BFEE0057E287 /* Functions.cpp in Sources */,
 				DBF38A6E09DA0BD500924B81 /* PluginInit.cpp in Sources */,
 				4FA771022708B37A00E02C94 /* SafeResources.cpp in Sources */,
-				4FBD0BD9272DD385001019BA /* Regex.cpp in Sources */,
 				DBF38A7209DA0BDB00924B81 /* PIMain.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,14 +544,16 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "../../PluginSupport/Headers/SDK/PIHeaders++.pch";
 				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS)";
 				INFOPLIST_FILE = ../sources/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = "Preview v1";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Bookmarks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.binghe.Preview;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
@@ -595,7 +605,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Bookmarks_debug" */ = {
+		4FADC23308B4156C00ABE55E /* Build configuration list for PBXNativeTarget "Preview_debug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FADC23408B4156C00ABE55E /* Default */,
@@ -603,7 +613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
 		};
-		4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Bookmarks" */ = {
+		4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "Preview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FADC23808B4156C00ABE55E /* Default */,

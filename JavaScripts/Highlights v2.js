@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////
-//  Copyright 2020,2022 by Chun Tian <binghe.lisp@gmail.com>
+//  Copyright 2020 by Chun Tian (binghe) <binghe.lisp@gmail.com>
 //
 //  The code in this file is provided as a download tool
 //  for paying members of pdfscripting.com. It is intended
@@ -56,7 +56,25 @@
 //  being used in Adobe Reader.  See comments in the JavaScript File for details.
 //
 
-var strDataHighlightRed = // 20x20
+var DoCmdhightlightRed = app.trustedFunction(function(oDoc)
+{
+    var strokeColor = color.red;
+    var opacity = 0.8;
+
+    oDoc.syncAnnotScan();
+    var annots = this.selectedAnnots;
+
+    if (annots != null) {
+      for (var i = annots.length - 1; i >= 0; i--) {
+        // if (annots[i].type == "Highlight") {
+          annots[i].opacity = opacity;
+          annots[i].strokeColor = strokeColor;
+        // }
+      }
+    }
+});
+
+var strData7hightlightRed = // 20x20
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2" +
 "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" +
 "FF6F6F6FFF6F6F6FC8FF0000C8FF0000C8FF0000C8FF0000C8FF0000C8FF0000C8FF0000C8FF0000" + "C8FF0000C8FF0000C8FF0000C8FF0000C8FF0000C8FF0000C8FF0000C8FF0000FF6F6F6FFF6F6F6F" +
@@ -78,7 +96,42 @@ var strDataHighlightRed = // 20x20
 "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" +
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2";
 
-var strDataHighlightYellow = // 20x20
+// Icon Generic Stream Object
+var oIconhightlightRed = null;
+oIconhightlightRed = {count: 0, width: 20, height: 20,
+read: function(nBytes){return strData7hightlightRed.slice(this.count, this.count += nBytes);}};
+
+var oButObjhightlightRed =
+{cName: "hightlightRed",
+cExec: "DoCmdhightlightRed(event.target);",
+cEnable: "event.rc = (app.doc != null)",
+cMarked: "event.rc = false",
+cTooltext: "Red Highlight",
+cLabel: "Red Highlight"};
+
+if (oIconhightlightRed != null) {
+    oButObjhightlightRed.oIcon = oIconhightlightRed;
+}
+
+var DoCmdhightlightYellow = app.trustedFunction(function(oDoc)
+{
+    var strokeColor = color.yellow;
+    var opacity = 0.8;
+
+    oDoc.syncAnnotScan();
+    var annots = this.selectedAnnots;
+
+    if (annots != null) {
+      for (var i = annots.length - 1; i >= 0; i--) {
+        // if (annots[i].type == "Highlight") {
+          annots[i].opacity = opacity;
+          annots[i].strokeColor = strokeColor;
+        // }
+      }
+    }
+});
+
+var strData7hightlightYellow = // 20x20
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2" +
 "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" +
 "FF6F6F6FFF6F6F6FFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00" + "FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF6F6F6FFF6F6F6F" +
@@ -100,7 +153,42 @@ var strDataHighlightYellow = // 20x20
 "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" +
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2";
 
-var strDataHighlightBlue = // 20x20
+// Icon Generic Stream Object
+var oIconhightlightYellow = null;
+oIconhightlightYellow = {count: 0, width: 20, height: 20,
+read: function(nBytes){return strData7hightlightYellow.slice(this.count, this.count += nBytes);}};
+
+var oButObjhightlightYellow =
+{cName: "hightlightYellow",
+cExec: "DoCmdhightlightYellow(event.target);",
+cEnable: "event.rc = (app.doc != null)",
+cMarked: "event.rc = false",
+cTooltext: "Yellow Highlight",
+cLabel: "Yellow Highlight"};
+
+if (oIconhightlightYellow != null) {
+    oButObjhightlightYellow.oIcon = oIconhightlightYellow;
+}
+
+var DoCmdhightlightBlue = app.trustedFunction(function(oDoc)
+{
+    var strokeColor = color.cyan;
+    var opacity = 0.8;
+
+    oDoc.syncAnnotScan();
+    var annots = this.selectedAnnots;
+
+    if (annots != null) {
+      for (var i = annots.length - 1; i >= 0; i--) {
+        // if (annots[i].type == "Highlight") {
+          annots[i].opacity = opacity;
+          annots[i].strokeColor = strokeColor;
+        // }
+      }
+    }
+});
+
+var strData7hightlightBlue = // 20x20
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2" +
 "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" +
 "FF6F6F6FFF6F6F6FFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF" + "FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF6F6F6FFF6F6F6F" +
@@ -122,7 +210,40 @@ var strDataHighlightBlue = // 20x20
 "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" +
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2";
 
-var strDataHighlightGreen = // 20x20
+// Icon Generic Stream Object
+var oIconhightlightBlue = null;
+oIconhightlightBlue = {count: 0, width: 20, height: 20,
+read: function(nBytes){return strData7hightlightBlue.slice(this.count, this.count += nBytes);}};
+
+var oButObjhightlightBlue =
+{cName: "hightlightBlue",
+cExec: "DoCmdhightlightBlue(event.target);",
+cEnable: "event.rc = (app.doc != null)",
+cMarked: "event.rc = false",
+cTooltext: "Blue Highlight",
+cLabel: "Blue Highlight"};
+
+if (oIconhightlightBlue != null) {
+    oButObjhightlightBlue.oIcon = oIconhightlightBlue;
+}
+
+var DoCmdhightlightGreen = app.trustedFunction(function(oDoc)
+{
+    var strokeColor = color.green;
+    var opacity = 0.8;
+
+    oDoc.syncAnnotScan();
+    var annots = this.selectedAnnots;
+
+    if (annots != null) {
+      for (var i = annots.length - 1; i >= 0; i--) {
+        annots[i].opacity = opacity;
+        annots[i].strokeColor = strokeColor;
+      }
+    }
+});
+
+var strData7hightlightGreen = // 20x20
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2" +
 "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" +
 "FF6F6F6FFF6F6F6FFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00" + "FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF6F6F6FFF6F6F6F" +
@@ -145,93 +266,36 @@ var strDataHighlightGreen = // 20x20
 "FFC2C2C2FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6F" + "FF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFF6F6F6FFFC2C2C2";
 
 // Icon Generic Stream Object
-var oIconHighlightRed =
-    {count: 0, width: 20, height: 20,
-     read: function(nBytes) {
-         return strDataHighlightRed.slice(this.count, this.count += nBytes);
-     }};
-var oIconHighlightYellow =
-    {count: 0, width: 20, height: 20,
-     read: function(nBytes) {
-         return strDataHighlightYellow.slice(this.count, this.count += nBytes);
-     }};
-var oIconHighlightBlue =
-    {count: 0, width: 20, height: 20,
-     read: function(nBytes) {
-         return strDataHighlightBlue.slice(this.count, this.count += nBytes);
-     }};
-var oIconHighlightGreen =
-    {count: 0, width: 20, height: 20,
-     read: function(nBytes) {
-         return strDataHighlightGreen.slice(this.count, this.count += nBytes);
-     }};
+var oIconhightlightGreen = null;
+oIconhightlightGreen = {count: 0, width: 20, height: 20,
+read: function(nBytes){return strData7hightlightGreen.slice(this.count, this.count += nBytes);}};
 
-var DoCmdhighlight = app.trustedFunction(function(oDoc, c)
-{
-    var strokeColor = c;
-    var opacity = 0.8;
+var oButObjhightlightGreen =
+{cName: "hightlightGreen",
+cExec: "DoCmdhightlightGreen(event.target);",
+cEnable: "event.rc = (app.doc != null)",
+cMarked: "event.rc = false",
+cTooltext: "Green Highlight",
+cLabel: "Green Highlight"};
 
-    /* first check annotations */
-    oDoc.syncAnnotScan();
-    var annots = this.selectedAnnots;
-    if (annots != null) {
-      for (var i = annots.length - 1; i >= 0; i--) {
-          annots[i].opacity = opacity;
-          annots[i].strokeColor = strokeColor;
-      }
-    }
-});
+if (oIconhightlightGreen != null) {
+    oButObjhightlightGreen.oIcon = oIconhightlightGreen;
+}
 
-var oButObjHighlightRed =
-    {cName: "highlightRed",
-     oIcon: oIconHighlightRed,
-     cExec: "DoCmdhighlight(event.target, color.red);",
-     cEnable: "event.rc = (app.doc != null)",
-     cMarked: "event.rc = false",
-     cTooltext: "Red Highlight - Criticism",
-     cLabel: "Red Highlight"};
+/* unnecessary
+try{app.removeToolButton("hightlightRed");}catch(e){}
+try{app.removeToolButton("hightlightYellow");}catch(e){}
+try{app.removeToolButton("hightlightBlue");}catch(e){}
+try{app.removeToolButton("hightlightGreen");}catch(e){}
+ */
 
-var oButObjHighlightYellow =
-    {cName: "highlightYellow",
-     oIcon: oIconHighlightYellow,
-     cExec: "DoCmdhighlight(event.target, color.yellow);",
-     cEnable: "event.rc = (app.doc != null)",
-     cMarked: "event.rc = false",
-     cTooltext: "Yellow Highlight - Emphasis",
-     cLabel: "Yellow Highlight"};
-
-var oButObjHighlightBlue =
-    {cName: "highlightBlue",
-     oIcon: oIconHighlightBlue,
-     cExec: "DoCmdhighlight(event.target, color.cyan);",
-     cEnable: "event.rc = (app.doc != null)",
-     cMarked: "event.rc = false",
-     cTooltext: "Blue Highlight - Aphorism",
-     cLabel: "Blue Highlight"};
-
-var oButObjHighlightGreen =
-    {cName: "highlightGreen",
-     oIcon: oIconHighlightGreen,
-     cExec: "DoCmdhighlight(event.target, color.green);",
-     cEnable: "event.rc = (app.doc != null)",
-     cMarked: "event.rc = false",
-     cTooltext: "Green Highlight - Keywords",
-     cLabel:    "Green Highlight"};
-
-// remove old toolbar buttons of the same names (if exist)
-try{app.removeToolButton("highlightRed");}catch(e){}
-try{app.removeToolButton("highlightYellow");}catch(e){}
-try{app.removeToolButton("highlightBlue");}catch(e){}
-try{app.removeToolButton("highlightGreen");}catch(e){}
-
-// add new toolbar buttons
 try {
-    app.addToolButton(oButObjHighlightRed);
-    app.addToolButton(oButObjHighlightYellow);
-    app.addToolButton(oButObjHighlightBlue);
-    app.addToolButton(oButObjHighlightGreen);
+    app.addToolButton(oButObjhightlightRed);
+    app.addToolButton(oButObjhightlightYellow);
+    app.addToolButton(oButObjhightlightBlue);
+    app.addToolButton(oButObjhightlightGreen);
 } catch(e) {
-    console.println("Highlights: addToolButton failed.");
+    console.println("Hightlights: addToolButton failed.");
   // print something?
 }
 
@@ -244,11 +308,11 @@ try {
     cEnable: "true",
     nPos: 0,
     bPrepend: "false",
-    cExec: "app.alert(\"Highlights 2.1 by Chun Tian <binghe.lisp@gmail.com>\", 3);"
+    cExec: "app.alert(\"Highlights 2.0.1 by Chun Tian (binghe)\", 3);"
   });
 } catch(e) {
     console.println("Highlights: addMenuItem failed.");
 }
 
-// Version 2.1
-// Last Update: July 14, 2022
+// Version 2.0.1
+// Last Update: Jun 15, 2020
